@@ -1,5 +1,5 @@
 "use strict";
-const expect = require("chai").expect;
+const {expect} = require("chai");
 const Nightmare = require("nightmare");
 
 const browser = new Nightmare({ nodeIntegration:false }).goto("about:blank");
@@ -30,7 +30,7 @@ function it_URL(cfg)
 			return {
 				hostname: url.hostname,
 				search: url.search,
-				//param: url.searchParams.get("param")
+				param: url.searchParams.get("param")
 			};
 		}, cfg.useGlobal)
 		.then( function(result)
@@ -41,7 +41,7 @@ function it_URL(cfg)
 			}
 
 			expect(result.search).to.equal("?param=value");
-			//expect(result.param).to.equal("value");
+			expect(result.param).to.equal("value");
 		});
 	});
 }
@@ -105,7 +105,7 @@ describe("Web Browser (without native)", function()
 			it_URL({ checkHost:true, useGlobal:true });
 		});
 
-		describe.skip("URLSearchParams", function()
+		describe("URLSearchParams", function()
 		{
 			it_URLSearchParams({ useGlobal:false });
 			it_URLSearchParams({ useGlobal:true });
