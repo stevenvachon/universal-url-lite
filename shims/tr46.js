@@ -28,7 +28,7 @@ function toASCII(domainName)
 		}
 	});
 
-	return error === false ? labels.join(".") : null;
+	return !error ? labels.join(".") : null;
 }
 
 

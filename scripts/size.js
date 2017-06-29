@@ -1,5 +1,5 @@
 "use strict";
-const minify = require("uglify-js").minify;
+const {minify} = require("uglify-js");
 const prettyBytes = require("pretty-bytes");
 const promisify = require("util.promisify");
 
@@ -8,24 +8,24 @@ const readFile = promisify( require("fs").readFile );
 
 
 
-function filesize(source)
+const filesize = source =>
 {
 	const output = { raw:prettyBytes(source.length) };
 
 	return gzipSize(source)
 	.then(size => output.gzipped = prettyBytes(size))
 	.then(() => output);
-}
+};
 
 
 
-function measureFile(path)
+const measureFile = path =>
 {
 	return readFile(`${__dirname}/../${path}`, "utf8")
 	.then(source => minify(source).code)
 	.then(source => filesize(source))
 	.then(size => console.log(`${path} :: ${size.raw}, ${size.gzipped} gzipped`));
-}
+};
 
 
 

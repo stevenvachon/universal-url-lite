@@ -1,14 +1,16 @@
-# universal-url-lite [![NPM Version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][david-image]][david-url]
+# universal-url-lite [![NPM Version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Monitor][greenkeeper-image]][greenkeeper-url]
+
 > A smaller Universal WHATWG [`URL`](https://developer.mozilla.org/en/docs/Web/API/URL), for Browserify/etc.
 
-The [universal-url](https://npmjs.com/universal-url) package bundles to 317kB (80kB gzipped). This package exists to compile the same to a smaller file size via custom optimizations.
+
+The [universal-url](https://npmjs.com/universal-url) package bundles to 350kB (87kB gzipped). This package exists to compile the same to a smaller file size via custom optimizations.
 
 **This package is not meant to be required/imported directly**. It should be added to your browser build process as an alias.
 
 
 ## Installation
 
-[Node.js](http://nodejs.org/) `>= 4` is required. To install, type this at the command line:
+[Node.js](http://nodejs.org/) `>= 6` is required. To install, type this at the command line:
 ```shell
 npm install universal-url-lite
 ```
@@ -59,10 +61,10 @@ Usage:
 
 [npm-image]: https://img.shields.io/npm/v/universal-url-lite.svg
 [npm-url]: https://npmjs.org/package/universal-url-lite
-[filesize-lite-gzip-image]: https://img.shields.io/badge/size-10kB%20gzipped-blue.svg
-[filesize-lite-uncp-image]: https://img.shields.io/badge/size-35kB-blue.svg
+[filesize-lite-gzip-image]: https://img.shields.io/badge/size-18kB%20gzipped-blue.svg
+[filesize-lite-uncp-image]: https://img.shields.io/badge/size-69kB-blue.svg
 [filesize-natv-uncp-image]: https://img.shields.io/badge/size-336B-blue.svg
 [travis-image]: https://img.shields.io/travis/stevenvachon/universal-url-lite.svg
 [travis-url]: https://travis-ci.org/stevenvachon/universal-url-lite
-[david-image]: https://img.shields.io/david/stevenvachon/universal-url-lite.svg
-[david-url]: https://david-dm.org/stevenvachon/universal-url-lite
+[greenkeeper-image]: https://badges.greenkeeper.io/stevenvachon/universal-url-lite.svg
+[greenkeeper-url]: https://greenkeeper.io/

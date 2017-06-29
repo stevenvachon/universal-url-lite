@@ -5,24 +5,24 @@ var g;
 
 if (typeof window !== "undefined")
 {
-    g = window;
+	g = window;
 }
 else if (typeof global !== "undefined")
 {
-    g = global;
+	g = global;
 }
 else if (typeof self !== "undefined")
 {
-    g = self;
+	g = self;
 }
 else
 {
-    g = this;
+	g = this;
 }
 
 
 
-var output = 
+var output =
 {
 	shim: function(){},
 	URL: g.URL,

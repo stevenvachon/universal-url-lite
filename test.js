@@ -1,12 +1,13 @@
 "use strict";
-const expect = require("chai").expect;
+const {beforeEach, describe, it} = require("mocha");
+const {expect} = require("chai");
 const Nightmare = require("nightmare");
 
 const browser = new Nightmare({ nodeIntegration:false }).goto("about:blank");
 
 
 
-function it_URL(cfg)
+const it_URL = cfg =>
 {
 	it(`works${cfg.useGlobal ? " globally" : ""}`, function()
 	{
@@ -30,10 +31,10 @@ function it_URL(cfg)
 			return {
 				hostname: url.hostname,
 				search: url.search,
-				//param: url.searchParams.get("param")
+				param: url.searchParams.get("param")
 			};
 		}, cfg.useGlobal)
-		.then( function(result)
+		.then(result =>
 		{
 			if (cfg.checkHost)
 			{
@@ -41,14 +42,14 @@ function it_URL(cfg)
 			}
 
 			expect(result.search).to.equal("?param=value");
-			//expect(result.param).to.equal("value");
+			expect(result.param).to.equal("value");
 		});
 	});
-}
+};
 
 
 
-function it_URLSearchParams(cfg)
+const it_URLSearchParams = cfg =>
 {
 	it(`works${cfg.useGlobal ? " globally" : ""}`, function()
 	{
@@ -76,7 +77,7 @@ function it_URLSearchParams(cfg)
 				p2all: params.getAll("p2")
 			};
 		}, cfg.useGlobal)
-		.then( function(result)
+		.then(result =>
 		{
 			expect(result.params).to.not.be.undefined;
 			expect(result.p1).to.equal("v");
@@ -84,7 +85,7 @@ function it_URLSearchParams(cfg)
 			expect(result.p2all).to.deep.equal(["", "v", ""]);
 		});
 	});
-}
+};
 
 
 
@@ -105,7 +106,7 @@ describe("Web Browser (without native)", function()
 			it_URL({ checkHost:true, useGlobal:true });
 		});
 
-		describe.skip("URLSearchParams", function()
+		describe("URLSearchParams", function()
 		{
 			it_URLSearchParams({ useGlobal:false });
 			it_URLSearchParams({ useGlobal:true });
