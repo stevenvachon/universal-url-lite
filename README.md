@@ -1,4 +1,6 @@
 # universal-url-lite [![NPM Version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][david-image]][david-url]
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/stevenvachon/universal-url-lite.svg)](https://greenkeeper.io/)
 > A smaller Universal WHATWG [`URL`](https://developer.mozilla.org/en/docs/Web/API/URL), for Browserify/etc.
 
 The [universal-url](https://npmjs.com/universal-url) package bundles to 350kB (87kB gzipped). This package exists to compile the same to a smaller file size via custom optimizations.
