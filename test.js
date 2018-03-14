@@ -3,13 +3,17 @@ const {beforeEach, describe, it} = require("mocha");
 const {expect} = require("chai");
 const Nightmare = require("nightmare");
 
-const browser = new Nightmare({ nodeIntegration:false }).goto("about:blank");
+let browser;
 
 
 
-const it_URL = cfg =>
+const getBrowser = () => new Nightmare({ nodeIntegration:false }).goto("about:blank");
+
+
+
+const it_URL = ({checkHost, useGlobal}) =>
 {
-	it(`works${cfg.useGlobal ? " globally" : ""}`, function()
+	it(`works${useGlobal ? " globally" : ""}`, function()
 	{
 		return browser.evaluate( function(useGlobal)
 		{
@@ -33,10 +37,10 @@ const it_URL = cfg =>
 				search: url.search,
 				param: url.searchParams.get("param")
 			};
-		}, cfg.useGlobal)
+		}, useGlobal)
 		.then(result =>
 		{
-			if (cfg.checkHost)
+			if (checkHost)
 			{
 				expect(result.hostname).to.equal("xn--brdaa.example");
 			}
@@ -49,9 +53,9 @@ const it_URL = cfg =>
 
 
 
-const it_URLSearchParams = cfg =>
+const it_URLSearchParams = ({useGlobal}) =>
 {
-	it(`works${cfg.useGlobal ? " globally" : ""}`, function()
+	it(`works${useGlobal ? " globally" : ""}`, function()
 	{
 		return browser.evaluate( function(useGlobal)
 		{
@@ -76,7 +80,7 @@ const it_URLSearchParams = cfg =>
 				p2: params.get("p2"),
 				p2all: params.getAll("p2")
 			};
-		}, cfg.useGlobal)
+		}, useGlobal)
 		.then(result =>
 		{
 			expect(result.params).to.not.be.undefined;
@@ -91,6 +95,11 @@ const it_URLSearchParams = cfg =>
 
 describe("Web Browser (without native)", function()
 {
+	before(() => browser = getBrowser());
+	after(() => browser.end());
+
+
+
 	describe(`"lite"`, function()
 	{
 		beforeEach(() => browser.refresh().evaluate( function()
@@ -201,6 +210,11 @@ describe("Web Browser (without native)", function()
 // TODO :: `checkHost:true` when Chrome correctly converts from Unicode to ASCII
 describe("Web Browser (with native)", function()
 {
+	before(() => browser = getBrowser());
+	after(() => browser.end());
+
+
+
 	describe(`"lite"`, function()
 	{
 		beforeEach(() => browser.refresh().inject("js", "./lite.js"));

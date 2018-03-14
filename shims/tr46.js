@@ -3,19 +3,18 @@ const punycode = require("punycode");
 
 
 
-const PROCESSING_OPTIONS = {};
 const uppercaseChars = /[A-Z]/g;
 
 
 
-function toASCII(domainName)
+const toASCII = domainName =>
 {
 	let error = false;
 
 	// Lowercase without changing any international Unicode characters
 	domainName = domainName.replace(uppercaseChars, match => match.toLowerCase());
 
-	const labels = domainName.split(".").map( function(label)
+	const labels = domainName.split(".").map(label =>
 	{
 		try
 		{
@@ -29,15 +28,15 @@ function toASCII(domainName)
 	});
 
 	return !error ? labels.join(".") : null;
-}
+};
 
 
 
-function toUnicode(domainName)
+const toUnicode = domainName =>
 {
 	let error = false;
 
-	const labels = domainName.split(".").map( function(label)
+	const labels = domainName.split(".").map(label =>
 	{
 		try
 		{
@@ -54,8 +53,8 @@ function toUnicode(domainName)
 		domain: labels.join("."),
 		error
 	};
-}
+};
 
 
 
-module.exports = { PROCESSING_OPTIONS, toASCII, toUnicode };
+module.exports = { toASCII, toUnicode };

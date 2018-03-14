@@ -3,8 +3,6 @@ const browserify = require("browserify");
 const {createWriteStream} = require("fs");
 const streamToPromise = require("stream-to-promise");
 
-const babelFix = require("./babel-fix");
-
 
 
 module.exports = Promise.all(
@@ -14,9 +12,8 @@ module.exports = Promise.all(
 	streamToPromise
 	(
 		browserify(require.resolve("universal-url/browser"), { standalone:"UniversalURL" })
-		.transform("babelify", { global:true, presets:["es2015"] })
+		.transform("babelify", { global:true, plugins:["transform-new-target"], presets:["env"] })
 		.bundle()
-		.pipe( babelFix() )
 		.pipe( createWriteStream("./full.js") )
 	),
 ]);

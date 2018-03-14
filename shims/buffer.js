@@ -27,9 +27,11 @@ class Buffer extends Uint8Array
 		else if (size < 0)
 		{
 			throw new RangeError(`"size" argument must not be negative`);
-		}*/
-
-		return new Buffer(size).fill(fill);
+		}
+		else
+		{*/
+			return new Buffer(size).fill(fill);
+		//}
 	}
 
 
