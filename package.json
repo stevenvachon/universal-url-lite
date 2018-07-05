@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "gzip-size": "^4.1.0",
+    "gzip-size": "^5.0.0",
     "mocha": "^5.0.4",
     "nightmare": "^3.0.0",
     "pretty-bytes": "^4.0.2",
