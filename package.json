@@ -8,7 +8,6 @@
   "main": "lite",
   "dependencies": {
     "@babel/core": "^7.0.0",
-    "@babel/plugin-transform-new-target": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "aliasify": "^2.1.0",
     "babelify": "^10.0.0",
