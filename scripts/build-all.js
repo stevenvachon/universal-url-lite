@@ -12,7 +12,7 @@ module.exports = Promise.all(
 	streamToPromise
 	(
 		browserify(require.resolve("universal-url/browser"), { plugins:["common-shakeify"], standalone:"UniversalURL" })
-		.transform("babelify", { global:true, plugins:["transform-new-target"], presets:["env"] })
+		.transform("babelify", { global:true, presets:["@babel/preset-env"] })
 		.bundle()
 		.pipe( createWriteStream("./full.js") )
 	),
