@@ -1,6 +1,6 @@
 "use strict";
 const gzipSize = require("gzip-size");
-const {minify} = require("uglify-es");
+const {minify} = require("terser");
 const prettyBytes = require("pretty-bytes");
 const promisify = require("util.promisify");
 
