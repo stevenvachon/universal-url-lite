@@ -3,8 +3,8 @@
   "description": "A smaller Universal WHATWG URL, for Browserify/etc.",
   "version": "2.0.0",
   "license": "MIT",
-  "author": "Steven Vachon <contact@svachon.com> (https://www.svachon.com/)",
-  "repository": "stevenvachon/universal-url-lite",
+  "author": "Steven Vachon <contact@svachon.com> (https://svachon.com)",
+  "repository": "github:stevenvachon/universal-url-lite",
   "main": "lite",
   "dependencies": {
     "@babel/core": "^7.1.6",
@@ -36,7 +36,7 @@
     "install": "node scripts/build-lite.js",
     "posttest": "node scripts/size.js",
     "pretest": "node scripts/build-all.js",
-    "test": "mocha test --check-leaks --globals=URL,URLSearchParams --bail"
+    "test": "mocha test.js --check-leaks --globals=URL,URLSearchParams --bail"
   },
   "files": [
     "native.js",

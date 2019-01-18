@@ -1,5 +1,5 @@
 "use strict";
-const {before, beforeEach, describe, it} = require("mocha");
+const {after, before, beforeEach, describe, it} = require("mocha");
 const {expect} = require("chai");
 const puppeteer = require("puppeteer");
 
