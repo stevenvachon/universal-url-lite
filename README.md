@@ -29,12 +29,11 @@ Usage:
 File size optimizations have been made, particularly the near-complete exclusion of the TR46 implementation. Functionality is essentially the same as the `universal-url` package, with the exception of IDNA validation and normalization. If a URL contains a hostname with any of the ~4500 Unicode characters requiring a specific casefold, comparison will produce false negatives. Consider this example:
 
 ```js
-const url1 = 'http://ㅼㅼㅼ/';
-const url2 = 'http://ᄯᄯᄯ/';
+const url1 = new URL('http://ㅼㅼㅼ/');
+const url2 = new URL('http://ᄯᄯᄯ/');
 
-if (new URL(url1).hostname !== new URL(url2).hostname) {
-    // This is wrong
-}
+console.log(url1.hostname === url2.hostname);
+//-> false -- which is incorrect
 ```
 
 With invalid IDNAs passing through without error, you will instead need to rely on errors produced by `XMLHttpRequest`/`fetch` to know that such URLs are unreachable.
