@@ -12,7 +12,7 @@
     "aliasify": "^2.1.0",
     "babelify": "^10.0.0",
     "browserify": "^16.2.3",
-    "common-shakeify": "~0.5.2",
+    "common-shakeify": "~0.6.0",
     "is-string": "^1.0.4",
     "punycode": "^2.1.1",
     "replacestream": "^4.0.3",
