@@ -26,7 +26,7 @@
     "mocha": "^5.2.0",
     "pretty-bytes": "^5.1.0",
     "puppeteer": "^1.10.0",
-    "terser": "^3.10.12",
+    "terser": "^4.0.0",
     "util.promisify": "^1.0.0"
   },
   "engines": {
